@@ -22,6 +22,7 @@ Dynamically rewrites the current webpage from the server. Swap out html template
 ### SPA needs 3 things
 #### Routing system
   - Window.location (Holds current page url)
+  - window.location simply holds the current URL/state the browser is       currently on. This is helpful for ensuring we don’t navigate from one page to the same page. 
 #### Browser History
   - History API
   - We need to manually change states to because the SPA isn't actually loading new websites.
