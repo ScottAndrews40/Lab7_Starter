@@ -119,6 +119,23 @@ function createRecipeCards() {
    * all the recipes. (bonus - add the class 'hidden' to every recipe card with 
    * an index greater  than 2 in your for loop to make show more button functional)
    */
+  for(let i = 1; i < recipes.length; ++i){
+    const recipeCard = document.createElement('recipe-card');
+    recipeCard.data = recipeData[recipes[i]];
+    const page = recipeData[recipes[i]]['page-name'];
+    router.addPage(page, function() {
+      document.querySelector('.section--recipe-cards').classList.remove('shown');
+      document.querySelector('.section--recipe-expand').classList.add('shown');
+      document.querySelector('recipe-expand').data = recipeData[recipes[i]];
+    });
+
+    bindRecipeCard(recipeCard, page);
+    document.querySelector('.recipe-cards--wrapper').appendChild(recipeCard);
+
+    if(i > 2){
+      recipeCard.classList.add('hidden');
+    };
+  }
 }
 
 /**
