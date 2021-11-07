@@ -89,11 +89,11 @@ export class Router {
     //Step 3
     //What is state(Should be a javascript object)? It is the current page. 
     if((!statePopped) && (window.location.hash != hash)) {
-      //statePopped is a boolean with !statePopped checks existance over statePopped == false
+      //statePopped is a boolean with !statePopped checks existance vs statePopped == false
       //"What scenario are we in ie clicking through pages or on browser" navigating w/ arrows we don't want to push to history 
       //stack because we are just moving through pages "popState" is technical term for use of directional arrows in webdev 
       //statePopped == false => 
-      //1st page is attribute name 2nd page is the actual page object being passed
+      //1st page is attribute name, 2nd page is the actual page object being passed
       //for state argument {page: page} <==== This is syntax from tutor
       history.pushState({page: page},'',window.location.origin + hash);
     }
