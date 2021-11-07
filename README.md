@@ -45,7 +45,7 @@ Dynamically rewrites the current webpage from the server. Swap out html template
 
 ## Service Workers
 
-We can't control the internet so how can we make our apps less network       dependant. Service workers are tools that allow us to circumvent this issue and allow our app to do more with less internet. Service Workers store recent calls locally so you don't have to use the internet to load new shit as it is stored locally. Service workers are stored within the browser.
+- We can't control the internet so how can we make our apps less network   dependant. Service workers are tools that allow us to circumvent this issue and allow our app to do more with less internet. Service Workers store recent calls locally so you don't have to use the internet to load new shit as it is stored locally. Service workers are stored within the browser. Service Workers listen in the background for whenever our code makes a request to the internet, and they store that request and its corresponding response inside of your browser. This effectively saves the data on your computer. You can have one simple Service Worker that will act as a guard for any network request and check to see if there’s a version of that data on your computer first.
 
 - Register: This is in sw.js file and tells the javascript file which service worker to use for the app
 - Install: Event listener and is triggered after succesful Register step
@@ -54,3 +54,6 @@ We can't control the internet so how can we make our apps less network       dep
 - Cache hit Vs Cache miss
   - Cache hit: Occurs when service worker has seen an internet request before, on hit pull data in response on last request.
   - Cache miss: When web application makes an entirely new request and we need to save the data, on miss store newtowrk response and request inside browser storage to use for later.
+- It seems nonsensical for our applications to rely on a resource as fickle from user to user as the internet.
+- So JavaScript is single-threaded as you may know, meaning that any process you want to run has to run one at a time, whether that be synchronously or asynchronously. Many issues can come up when you have intensive tasks that take up a lot of time, this can block the thread and prevent JS from manipulating UI or other things. Service Workers work in the background, separately from the DOM, and allow you to have multithreaded programming. Along with this, they have a functionality we are much more interested in - they can intercept network requests and manage our cache for us without us having to deal with it.
+- 
