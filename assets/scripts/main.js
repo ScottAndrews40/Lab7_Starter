@@ -222,9 +222,16 @@ function bindPopstate() {
    */
   window.addEventListener('popstate', (e) => {
 
-    console.log("location: " + document.location + ", state: " + JSON.stringify(e.state));
+    //console.log("location: " + document.location + ", state: " + JSON.stringify(e.state));
     //console.log(e.page);
-    router.navigate(history.state['page'], true); 
+
+    if(e.state == null){
+      router.navigate('home', true);
+    }
+    else{
+      router.navigate(history.state['page'], true); 
+    }
+    
 
   });
 }
